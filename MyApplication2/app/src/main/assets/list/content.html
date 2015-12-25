@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style type='text/css'>
+  html { font-family:Helvetica; color:#222; }
+  h1 { color:steelblue; font-size:24px; margin-top:24px; }
+  button { margin:0 3px 10px; font-size:12px; }
+  .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+  </style>
+  <script src="mnt/sdcard/Hekr/list/debuggap.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Demo</h1>
+  <script>
+  window.onerror = function(err) {
+    log('window.onerror: ' + err)
+  };
+
+  function connectWebViewJavascriptBridge(callback) {
+    if (window.WebViewJavascriptBridge) {
+      callback(WebViewJavascriptBridge)
+    } else {
+      document.addEventListener('WebViewJavascriptBridgeReady', function() {
+        callback(WebViewJavascriptBridge)
+      }, false)
+    }
+  };
+
+  connectWebViewJavascriptBridge(function(bridge) {
+    var uniqueId = 1
+    function log(message, data) {
+      var log = document.getElementById('log')
+      var el = document.createElement('div')
+      el.className = 'logLine'
+      el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + String(data)
+      if (log.children.length) { log.insertBefore(el, log.children[0]) }
+      else { log.appendChild(el) }
+    };
+    log('HekrSDK','ready');
+
+    var HekrDatas = {
+      list:[]
+    };
+
+
+    var button = document.getElementById('buttons').appendChild(document.createElement('button'));
+    button.innerHTML = 'GetDevices';
+    button.onclick = function(e) {
+      e.preventDefault()
+      log('getDevices',{})
+      Hekr.getDevices(function(list,error) {
+        HekrDatas.list = list
+        log('getDevices response', list)
+      })
+    };
+
+    document.body.appendChild(document.createElement('br'));
+
+    var callbackButton = document.getElementById('buttons').appendChild(document.createElement('button'));
+    callbackButton.innerHTML = 'send msg';
+    callbackButton.onclick = function(e) {
+      e.preventDefault();
+      log('sendMsg',Hekr.sendMsg);
+      if (HekrDatas.list.length > 0) {
+        var tid = HekrDatas.list[0].tid;
+        log('send msg',tid + ' (+ 1 1)');
+        Hekr.sendMsg(tid,'(+ 1 1)','auto');
+      }
+    };
+    document.body.appendChild(document.createElement('br'));
+
+    var logoutButton = document.getElementById('buttons').appendChild(document.createElement('button'));
+    logoutButton.innerHTML = 'logout';
+    logoutButton.onclick = function(e) {
+      e.preventDefault();
+      log('logout',{});
+      Hekr.logout();
+    };
+  });
+  </script>
+  <div id='buttons'></div>
+  <div id='log'></div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+body,html{
+	width:100%;
+	font-family: simsun;
+}
+.main{
+	padding-bottom: 2rem;
+	box-sizing: border-box;
+}
+#page-bg{
+	position: fixed;
+	top:0;
+	left: 0;
+	z-index: -1;
+	width:100%;
+	height: 100%;
+}
+/*温度*/
+.thermometer-box{
+	margin:2rem 0 1rem;
+	text-align: center;
+}
+.thermometer{
+	display: inline-block;
+	width:18rem;
+	height: 18rem;
+	padding:2rem;
+	border-radius: 100%;
+	background-color: #127AC8;
+	background-size: 100% 100%;
+	box-sizing:border-box;
+}
+.thermometer dl{
+	width:7rem;
+	margin:1.8rem auto 0;
+	text-align: left;
+}
+.thermometer dt{
+	margin-top:0.2rem;
+	color: #fff;
+	font-size: 0.9rem;
+	font-family: 'fzlthk';
+	text-shadow:-0.05rem 0.15rem 0.2rem #13608E;
+}
+.thermometer dd{
+	color: #fff;
+	font-size: 3.5rem;
+	font-family: 'MyriadPro';
+	text-shadow:-0.05rem 0.25rem 0.3rem #13608E;
+}
+.thermometer-status{
+	color: #fa0e45;
+	font-weight: normal;
+	font-size: 0.9rem;
+	font-family: microsoft yahei;
+}
+/*温度动画*/
+#thermometer-animate canvas{
+	position: absolute;
+	top: 2.5rem;
+	left: 50%;
+	width: 17.18rem;
+	height: 17.18rem;
+	margin-left: -8.5rem;
+	
+}
+/*功能菜单*/
+.nav-tools{
+	text-align: center;
+}
+.nav-tools>ul{
+	font-size: 0
+}
+.nav-tools>ul>li{
+	display: inline-block;
+	width:4rem;
+	height: 6.5rem;
+	margin:1rem 0.8rem 0;
+	font-family: 'fzlthk';
+}
+.nav-tools>ul>li.opacity8 .tools-icon{
+	opacity: 0.7;
+}
+.nav-tools>ul>li.forbidden{
+
+}
+.nav-tools>ul>li.forbidden .tools-icon,.nav-tools>ul>li.off .tools-icon{
+	background:transparent;
+}
+.nav-tools>ul>li.forbidden{
+	opacity: 0.3;
+}
+.nav-tools>ul>li .caption{
+	height: 2rem;
+	color: #fff;
+	font-weight: normal;
+	font-size: 1rem;
+	line-height: 2rem;
+	text-shadow:-0.02rem 0.05rem 0.15rem #3e94c3;
+}
+.tools-icon{
+	width:4rem;
+	height: 4rem;
+	border:0.12rem solid #fff;
+	border-radius: 100%;
+	background:url("../images/blue-bg.png");
+	background-size: 100% 100%;
+	box-shadow: 0 0.1rem 0.3rem #3783ad;
+	text-align: center;
+}
+.tools-icon ul{
+	overflow: hidden;
+	position: relative;
+	top:-2rem;
+	height: 6rem;
+	padding-top: 2rem;
+}
+.tools-icon li{
+	display: none;
+	position: relative;
+	font-size: 1rem;
+	line-height: 2rem;
+}
+.tools-icon li.active{
+	display: block;
+	font-size: 1.3rem;
+	line-height: 4rem;
+}
+.tools-icon i{
+	border:none;
+	background-color: transparent;
+	color: #fff;
+	font-style: normal;
+	font-weight: bold;
+	text-shadow:-0.05rem 0.15rem 0.2rem #13608E;
+}
+
+/*预约时间*/
+.appointment-box{
+	overflow: hidden;
+	position: relative;
+	height: 6.5rem;
+	background-color: #2962ca;
+	box-sizing: border-box;
+}
+.appointment{
+	position: relative;
+}
+.left-caption,.right-caption{
+	position: absolute;
+	top:-6.9rem;
+	left: -1.5rem;
+	width:1rem;
+	color: #fff;
+	font-size: 0.9rem;
+	font-family: 'fzlthk';
+	text-shadow:-0.02rem 0.05rem 0.15rem #3e94c3;
+	white-space: normal;
+}
+.right-caption{
+	left: inherit;
+	right: -1.5rem;
+}
+.appointment>ul{
+	position: absolute;
+	top:1rem;
+	left: 0;
+	width: 100%;
+	padding:0 1.5rem;
+	box-sizing: border-box;
+	font-size: 0;
+	text-align: center;
+	white-space: nowrap;
+}
+.appointment>ul>li{
+	display: inline-block;
+	position: relative;
+	font-size: 0.9rem;
+	font-family: 'MyriadPro';
+}
+.appointment>ul>li h5{
+	height: 1rem;
+	color: #fff;
+	font-size: 0.8rem;
+	line-height: 1rem
+	font-family: 'fzlthk';
+	text-shadow:-0.02rem 0.05rem 0.15rem #3e94c3;
+}
+.appointment>ul>li.time{
+  	position: relative;
+  	top: -3.3rem;
+  	margin:-0.6rem 0.8rem 0;
+}
+.appointment>ul>li.time strong{
+	color: #fff;
+	font-weight: bold;
+	font-size: 1rem;
+	font-family: 'fzlthk';
+}
+.time-bg{
+	width:2.5rem;
+	height: 2.5rem;
+	margin-bottom: 0.3rem;
+	border:0.12rem solid #fff;
+	border-radius: 100%;
+	background:url("../images/blue-bg.png");
+	background-size: 100% 100%;
+	box-shadow: 0 0.1rem 0.3rem #3783ad;
+	line-height: 3.5rem;
+	text-align: center;
+}
+.time-bg.off{
+	background: transparent;
+}
+.appointment>ul>li .time-icon{
+	display: block;
+	width: 2.5rem;
+	height: 2.5rem;
+	border:none;
+}
+.appointment>ul>li .time-num{
+	width:3rem;
+	height: 3rem;
+	background: url("../images/blue-bg_02.png");
+	background-size: 100% 100%;
+	box-sizing:border-box;
+	text-align: center;
+}
+.time-num ul{
+	overflow: hidden;
+	position: relative;
+	top:-1.5rem;
+	width: 100%;
+	height: 4.5rem;
+	padding-top:1.5rem;
+}
+.time-num li{
+	display: none;
+	position: relative;
+	top:0;
+	height: 1.5rem;
+	color: #fff;
+	font-weight: normal;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	font-family: "impact";
+}
+.time-num li.active:before{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 0.4rem;
+	margin-top: -0.2rem;
+	background: url("../images/shadow-line.png");
+	background-size: 100% 100%;
+	content: "";
+}
+.time-num li.active{
+	display: block;
+	height: 3rem;
+	font-size: 2rem;
+	line-height: 3rem;
+}
+.shadow-line{
+	display: none;
+	position: absolute;
+	top:50%;
+	left: 0;
+	width: 100%;
+	height: 0.4rem;
+	margin-top:0.4rem;
+	background: url("../images/shadow-line.png");
+	background-size: 100% 100%;
+}

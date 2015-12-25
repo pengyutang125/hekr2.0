@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">HEKR</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="checked_have_wifi">网络状态：Wi-Fi</string>
+    <string name="checked_have_network">检测到有有线网络</string>
+    <string name="network_three_g">网络状态：3G网络</string>
+    <string name="checked_network_disconnect">网络状态：网络断开</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+</resources>

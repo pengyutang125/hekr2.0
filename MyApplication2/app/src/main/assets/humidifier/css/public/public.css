@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'fzlthk';
+    src: url("../../font/FZLTHK GBK 1 0.TTF");
+    src: url("../../font/FZLTHK GBK 1 0.TTF") format("truetype");
+}
+@font-face {
+    font-family: 'MyriadPro';
+    src: url("../../font/MyriadPro Regular.otf");
+    src: url("../../font/MyriadPro Regular.otf") format("truetype");
+}
+@font-face {
+    font-family: 'impact';
+    src: url("../../font/impact.ttf");
+    src: url("../../font/impact.ttf") format("truetype");
+}
+@font-face {
+  src: url("../../font/fontawesome-webfont.eot");
+  src: url("../../font/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../../font/fontawesome-webfont.woff") format("woff"), url("../../font/fontawesome-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'FontAwesome';
+}
+.btnDown{
+   background: rgba(255,255,255,0.3);
+}
+.opacity8{
+    opacity: 0.8;
+}
+.return-page-icon{
+    position: absolute;
+    top:0.2rem;
+    left: 0.8rem;
+    color: #fff;
+    font-size: 3.5rem;
+    font-family: "FontAwesome";
+    text-shadow:0 0 0.2rem #666;
+}
+.return-page-icon:before{
+    content: "\f104";
+}

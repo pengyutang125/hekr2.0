@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style type='text/css'>
+  html { font-family:Helvetica; color:#222; }
+  h1 { color:steelblue; font-size:24px; margin-top:24px; }
+  button { margin:0 3px 10px; font-size:12px; }
+  .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+  </style>
+</head>
+<body>
+  <h1>Start</h1>
+  <script>
+  window.onerror = function(err) {
+    log('window.onerror: ' + err)
+  };
+
+  function connectWebViewJavascriptBridge(callback) {
+    if (window.WebViewJavascriptBridge) {
+      callback(WebViewJavascriptBridge)
+    } else {
+      document.addEventListener('WebViewJavascriptBridgeReady', function() {
+        callback(WebViewJavascriptBridge)
+      }, false)
+    }
+  };
+
+  connectWebViewJavascriptBridge(function(bridge) {
+    var onuser = function(user){
+      if (user) {
+
+        window.location.href = 'http://hekr.me/template/start?openType=close';
+        window.location.href = 'http://hekr.me/template/list?openType=push';
+      }else{
+        window.location.href = 'http://login.hekr.me?openType=push';
+      }      
+    };
+    Hekr.currentUser(onuser);
+    Hekr.onUser(onuser);
+  });
+  </script>
+</body>
+</html>
